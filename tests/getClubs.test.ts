@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import api from '../api.json';
+import { getBaseParameters, getBaseParametersFails } from "../entities/baseParameters";
 
 test.describe("API-тесты на получение списка клубов", async () => {
     test("[positive] получить список клубов", async ({ request }) => {
@@ -7,13 +8,11 @@ test.describe("API-тесты на получение списка клубов"
             `${api.urls.base_url_api}${api.paths.clubs}`,
             {
                 headers: {
-                    'Authoriazation': `${api.tokens.test}`
+                    'Authorization': `${api.tokens.test}`
                 },
-                params: {
-                    session_id: "1",
-                    request_id: "2",
-                    request_source: "crm"
-                }
+                params: { ...await getBaseParameters() }
+
+
 
             }
         );
@@ -25,12 +24,11 @@ test.describe("API-тесты на получение списка клубов"
             `${api.urls.base_url_api}${api.paths.clubs}`,
             {
                 headers: {
-                    'Authoriazation': `${api.tokens.test}`
+                    'Authorization': `${api.tokens.test}`
                 },
-                params: {
-                    session_id: "1",
-                    request_source: "crm"
-                }
+                params: {...await getBaseParametersFails() }
+                    
+                
 
             }
         );
