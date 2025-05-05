@@ -6,6 +6,6 @@ export function getRandomEmail(): string {
     return `test${new Date().getTime().toString()}@ddx.ru`;
 };
 
-export function getNegativeString(): string {
+export function getString(): string {
     return `abc${new Date().getTime().toString()}`// эксперементальная функция для генерации невалидной строки(например поле принимает enum)
 };

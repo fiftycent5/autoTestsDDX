@@ -1,6 +1,6 @@
 import test, { expect } from "@playwright/test"
 import api from '../api.json';
-import { getNegativeString } from "../utils/random";
+import { getString } from "../utils/random";
 import { log } from "../utils/logger";
 
 test.describe("Тесты на создания карт доступа пользователя", async () => {
@@ -13,7 +13,7 @@ test.describe("Тесты на создания карт доступа поль
             data: [
                 {
 
-                    access_card_number: getNegativeString(),
+                    access_card_number: getString(),
                     user_id: 2425553,
                     type: "bracelet",
 
