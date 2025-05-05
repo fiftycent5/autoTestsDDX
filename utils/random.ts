@@ -8,4 +8,4 @@ export function getRandomEmail(): string {
 
 export function getNegativeString(): string {
     return `abc${new Date().getTime().toString()}`// эксперементальная функция для генерации невалидной строки(например поле принимает enum)
-}
+};
